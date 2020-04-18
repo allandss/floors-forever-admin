@@ -19,7 +19,7 @@ export default function products() {
             </h3>
           </div>
           <div className="col-6">
-            <a href="/job/new">
+            <a href="/new-product">
               <button type="button">New product</button>
             </a>
           </div>

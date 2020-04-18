@@ -15,8 +15,9 @@ input:focus {
 }
 
 .main {
-  min-height: 500px;
+  min-height: 450px;
   background: #f1f1f1;
+  padding-bottom: 50px;
 }
 
 .main h2 {

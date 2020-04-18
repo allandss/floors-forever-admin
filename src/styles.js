@@ -553,6 +553,39 @@ export const Header = styled.header`
   }
 `;
 
+export const AddProduct = styled.div`
+    .content{
+      background: #fff;
+      padding: 50px;
+      border-radius: 3px;
+    }
+    .form-control {
+      height: 50px;
+      margin-bottom: 10px;
+      padding-left: 20px;
+      font-size: 13px;
+    }
+    textarea {
+      min-height: 80px;
+    }
+    label {
+      margin-bottom: 5px;
+      font-size: 15px;
+    }
+    button.send {
+      background: #f8bf45;
+      color: #fff;
+      border: 0px;
+      border-radius: 3px;
+      width: 100%;
+      height: 50px;
+      margin-bottom: 30px;
+      cursor: pointer;
+    }
+    .form-control-file{
+      margin-bottom: 30px;
+    }
+`;
 
 export const Subheader = styled.div`
   padding-top: 120px;

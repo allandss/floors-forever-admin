@@ -2,8 +2,8 @@ import React from 'react';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import { Subheader } from '../../styles';
-import { ProductList } from '../../styles';
-import ImageProduct from '../../assets/images/product-300x300.jpg';
+import { AddProduct } from '../../styles';
+import { Form } from '@unform/web';
 
 export default function product() {
   return (
@@ -15,30 +15,29 @@ export default function product() {
           <div className="col-6">
           <h3>Products <span><b>/</b> Add new</span></h3>
           </div>
-          <div className="col-6">
-            <a href="/job/new">
-              <button type="button">New product</button>
-            </a>
-          </div>
         </div>
       </div>
     </Subheader>
     <div className="main">
       <div className="container">
-        <h2>Product List</h2>
-        <ProductList>
+        <h2>Create new product</h2>
+        <AddProduct>
+        <div className="content">
           <div className="row">
             <div className="col-md-12">
-              <div className="product">
-                <img src={ImageProduct} alt="" className="thumb" />
-                <div className="content">
-                  <h3>High-Quality Interior Vinyl Flooring</h3>
-                  <p className="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                </div>
-              </div>
+              <Form onSubmit="">
+                <p className="label">Name</p>
+                <input name="name" className="form-control" type="text" />
+                <p className="label">Description</p>
+                <textarea name="description" className="form-control" type="text" />
+                <p className="label">Image</p>
+                <input name="image" className="form-control-file" type="file" />
+                <button type="submit" className="send">Add new product</button>
+              </Form>
             </div>
           </div>
-        </ProductList>
+        </div>
+        </AddProduct>
       </div>
     </div>
     <Footer/>
