@@ -1,6 +1,7 @@
 import React from 'react';
 import { Login } from '../../styles';
 import backgroundLogin from '../../assets/images/background-1.jpg';
+import logo from '../../assets/images/logo.jpeg';
 
 export default function login() {
   return (
@@ -9,7 +10,7 @@ export default function login() {
         <div className="col-lg-6">
           <div className="box">
             <form schema="" onSubmit="">
-              <img className="logo" src="./logo.jpeg" alt=""/>
+              <img className="logo" src={logo} alt=""/>
               <h3>Sign into your account</h3>
               <p className="label">Email address</p>
               <input name="id" className="form-control" type="text" placeholder="you@example.com" />
