@@ -5,7 +5,7 @@ import { Subheader } from '../../styles';
 import { ProductList } from '../../styles';
 import ImageProduct from '../../assets/images/product-300x300.jpg';
 
-export default function products() {
+export default function product() {
   return (
     <>
     <Header />
@@ -13,10 +13,7 @@ export default function products() {
       <div className="container">
         <div className="row">
           <div className="col-6">
-            <h3>
-              Products
-              <span />
-            </h3>
+          <h3>Products <span><b>/</b> Add new</span></h3>
           </div>
           <div className="col-6">
             <a href="/job/new">

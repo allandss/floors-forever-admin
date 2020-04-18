@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import backgroundHeader from './assets/images/background-1.jpg';
 
 export const Login = styled.div`
   background: #fff;
@@ -558,7 +559,7 @@ export const Subheader = styled.div`
   padding-bottom: 60px;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url(./images/background-1.jpg);
+  background-image: url(${backgroundHeader});
 
   h3 {
     color: #fff;

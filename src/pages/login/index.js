@@ -1,5 +1,6 @@
 import React from 'react';
 import { Login } from '../../styles';
+import backgroundLogin from '../../assets/images/background-1.jpg';
 
 export default function login() {
   return (
@@ -18,7 +19,7 @@ export default function login() {
             </form>
           </div>
         </div>
-        <div className="col-lg-6 box-about" style={{ backgroundImage: "url('./images/background-1.jpg')" }}>
+        <div className="col-lg-6 box-about" style={{ backgroundImage: `url('${backgroundLogin}')` }}>
         </div>
       </div>
     </Login>
