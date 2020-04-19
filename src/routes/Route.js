@@ -2,12 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
 
+import { store } from '../store';
+
 export default function RouterWrapper({
   component: Component,
   isPrivate,
   ...rest
 }){
-  const signed = false;
+  const { signed } = store.getState().auth;
+  setTimeout(function(){ console.log(signed) }, 6000);
 
   if(!signed && isPrivate){
     return <Redirect to="/" />

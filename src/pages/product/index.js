@@ -4,6 +4,7 @@ import Footer from '../../components/footer';
 import { Subheader } from '../../styles';
 import { AddProduct } from '../../styles';
 import { Form } from '@unform/web';
+import Input from '../../components/Input';
 
 export default function product() {
   return (
@@ -27,11 +28,11 @@ export default function product() {
             <div className="col-md-12">
               <Form onSubmit="">
                 <p className="label">Name</p>
-                <input name="name" className="form-control" type="text" />
+                <Input name="name" className="form-control" type="text" />
                 <p className="label">Description</p>
                 <textarea name="description" className="form-control" type="text" />
                 <p className="label">Image</p>
-                <input name="image" className="form-control-file" type="file" />
+                <Input name="image" className="form-control-file" type="file" />
                 <button type="submit" className="send">Add new product</button>
               </Form>
             </div>

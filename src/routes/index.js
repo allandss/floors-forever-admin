@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import Route from './Route';
 
 import Login from '../pages/login';
@@ -8,12 +8,12 @@ import Product from '../pages/product';
 
 export default function Routes(){
   return (
-    <BrowserRouter>
+    
       <Switch>
         <Route path="/" exact component={Login} />
         <Route path="/products" component={Products} isPrivate />
         <Route path="/new-product" component={Product} isPrivate />
       </Switch>
-    </BrowserRouter>
+   
   )
 }

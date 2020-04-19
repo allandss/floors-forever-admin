@@ -1,28 +1,47 @@
 import React from 'react';
-import { Login } from '../../styles';
+import { useDispatch } from 'react-redux';
+import { LoginPage } from '../../styles';
 import backgroundLogin from '../../assets/images/background-1.jpg';
 import logo from '../../assets/images/logo.jpeg';
+import { Form } from '@unform/web';
+import Input from '../../components/Input';
+import * as Yup from 'yup';
 
-export default function login() {
+import { signInRequest } from '../../store/modules/auth/actions';
+
+const schema = Yup.object().shape({
+  id: Yup.string().email('Enter a valid email address').required('Email is required'),
+  password:  Yup.string().min(6, 'Password must be at least 6 characters').required('Password is required'),
+});
+
+export default function Login() {
+  const dispatch = useDispatch();
+  //const loading = useSelector(state => state.auth.loading);
+
+  function handleSubmit({email, password}){
+    dispatch(signInRequest(email, password));
+  }
+  
   return (
-    <Login>
+    <LoginPage>
       <div className="row">
         <div className="col-lg-6">
           <div className="box">
-            <form schema="" onSubmit="">
+            <Form schema={schema} onSubmit={handleSubmit}>
               <img className="logo" src={logo} alt=""/>
               <h3>Sign into your account</h3>
               <p className="label">Email address</p>
-              <input name="id" className="form-control" type="text" placeholder="you@example.com" />
+              <Input name="email" className="form-control" type="text" placeholder="you@example.com" />
               <p className="label left">Password</p>
-              <input name="password" className="form-control" type="password" placeholder="Enter 6 characters or more" />
+              <Input name="password" className="form-control" type="password" placeholder="Enter 6 characters or more" />
               <button type="submit" className="send">Sign in</button>
-            </form>
+            </Form>
           </div>
         </div>
         <div className="col-lg-6 box-about" style={{ backgroundImage: `url('${backgroundLogin}')` }}>
         </div>
       </div>
-    </Login>
+    </LoginPage>
   );
 }
+

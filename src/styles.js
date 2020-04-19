@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import backgroundHeader from './assets/images/background-1.jpg';
 
-export const Login = styled.div`
+export const LoginPage = styled.div`
   background: #fff;
   width: 100%;
   padding-right: 15px;
@@ -311,7 +311,6 @@ export const Login = styled.div`
     background-color: #f8d7da;
     border: 1px solid #f5c6cb;
     font-size: 13px;
-    display: none;
   }
 
   @media (max-width: 992px) {
