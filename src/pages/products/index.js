@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import { Subheader } from '../../styles';
 import { ProductList } from '../../styles';
-import ImageProduct from '../../assets/images/product-300x300.jpg';
+import api from '../../services/api';
+import { readProductRequest } from '../../store/modules/products/actions';
 
-export default function products() {
+export default function Products() {
+  const dispatch = useDispatch();
+  const [products, setProducts] = useState([]);
+  useEffect(()=> {
+    async function loadProducts(){
+      const response = await api.get('products');
+      const data = response.data.products;
+      setProducts(data);
+    }
+    loadProducts();
+  }, []);
+
+  function selectProduct(id){
+    dispatch(readProductRequest(id));
+  }
+  
   return (
     <>
     <Header />
@@ -31,15 +48,18 @@ export default function products() {
         <h2>Product List</h2>
         <ProductList>
           <div className="row">
+            {console.log(products)}
+          { products.map(product => (
             <div className="col-md-12">
-              <div className="product">
-                <img src={ImageProduct} alt="" className="thumb" />
+              <div className="product" onClick={() => selectProduct(product._id)}>
+                <img src="" alt="" className="thumb" /> 
                 <div className="content">
-                  <h3>High-Quality Interior Vinyl Flooring</h3>
-                  <p className="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                  <h3>{product.name}</h3>
+                  <p className="description">{product.description}</p>
                 </div>
               </div>
             </div>
+            ))}
           </div>
         </ProductList>
       </div>

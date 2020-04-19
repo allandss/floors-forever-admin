@@ -10,7 +10,6 @@ export default function RouterWrapper({
   ...rest
 }){
   const { signed } = store.getState().auth;
-  setTimeout(function(){ console.log(signed) }, 6000);
 
   if(!signed && isPrivate){
     return <Redirect to="/" />

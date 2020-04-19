@@ -606,6 +606,10 @@ export const Subheader = styled.div`
     }
   }
 
+  button.delete {
+    background: #F44336;
+  } 
+  
   button {
     background: #f8bf45;
     color: #fff;
