@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import 'react-toastify/dist/ReactToastify.css';
 import backgroundHeader from './assets/images/background-1.jpg';
 
 export const LoginPage = styled.div`

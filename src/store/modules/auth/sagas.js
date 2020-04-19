@@ -1,5 +1,5 @@
 import { takeLatest, call, put, all } from 'redux-saga/effects';
-//import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 import api from '../../../services/api';
 import history from '../../../services/history';
@@ -7,18 +7,27 @@ import history from '../../../services/history';
 import { signInSuccess, signInFailure } from './actions';
 
 export function* signIn({ payload }){
-  const { email, password } = payload;
+  try{
+    const { email, password } = payload;
 
-  const response = yield call(api.post, '/users/login', {
-    email, 
-    password
-  });
+    const response = yield call(api.post, '/users/login', {
+      email, 
+      password
+    });
 
-  const { token, user } = response.data;
+    const { token, user } = response.data;
 
-  yield put(signInSuccess(token, user));
-
-  history.push('/products');
+    yield put(signInSuccess(token, user));
+    
+    toast.success('Success login');
+    
+    history.push('/products');
+    
+  }catch(err){
+    toast.error('That email and password combination is incorrect.');
+    yield put(signInFailure());
+  }
+  
 
 }
 
