@@ -1,7 +1,7 @@
-export function createProductRequest(name, description, imagem){
+export function createProductRequest(name, description, image){
   return {
     type: '@products/CREATE_PRODUCT_REQUEST',
-    payload: { name, description, imagem },
+    payload: { name, description, image },
   };
 }
 export function readProductRequest(id){

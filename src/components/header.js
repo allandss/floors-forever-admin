@@ -8,12 +8,10 @@ export default function header() {
     <Header>
       <div className="container">
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <img src={Logo} alt="Logo" className="logo" />
-          
-          <div className="navbar-collapse">
-            <Nav />
-          </div>
-
+          <img src={Logo} alt="Logo" className="logo" />          
+            <div className="navbar-collapse">
+              <Nav />
+            </div>
         </nav>
       </div>
     </Header>

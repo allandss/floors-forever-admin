@@ -1,19 +1,22 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import { Subheader } from '../../styles';
 import { AddProduct } from '../../styles';
 import { Form } from '@unform/web';
 import Input from '../../components/Input';
+import ImagePreview from '../../components/imagePreview';
 
 import { createProductRequest } from '../../store/modules/products/actions';
 
 export default function Product() {
   const dispatch = useDispatch();
-  function handleSubmit({name, description, imagem}){
-    dispatch(createProductRequest(name, description, imagem))
-    console.log(name, description, imagem)
+  const { loading } = useSelector(state => state.auth);
+
+  function handleSubmit({name, description, image}){
+    dispatch(createProductRequest(name, description, image))
+    console.log(name, description, image)
   }
   return (
     <>
@@ -39,8 +42,8 @@ export default function Product() {
                 <Input name="name" className="form-control" type="text" />
                 <p className="label">Description</p>
                 <Input name="description" className="form-control" type="text" multiline="true" />
-                <p className="label">Image</p>
-                <Input name="imagem" className="form-control-file" type="file" />
+                <p className="label">Image <span>(Click image to add)</span></p>
+                <ImagePreview name="image" />
                 <button type="submit" className="send">Add new product</button>
               </Form>
             </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { LoginPage } from '../../styles';
-import backgroundLogin from '../../assets/images/background-1.jpg';
+import backgroundLogin from '../../assets/images/background-1.png';
 import logo from '../../assets/images/logo.jpeg';
 import { Form } from '@unform/web';
 import Input from '../../components/Input';

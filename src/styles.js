@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import 'react-toastify/dist/ReactToastify.css';
-import backgroundHeader from './assets/images/background-1.jpg';
+import backgroundHeader from './assets/images/background-1.png';
 
 export const LoginPage = styled.div`
   background: #fff;
@@ -558,33 +558,37 @@ export const AddProduct = styled.div`
       background: #fff;
       padding: 50px;
       border-radius: 3px;
+      .form-control {
+        height: 50px;
+        margin-bottom: 10px;
+        padding-left: 20px;
+        font-size: 13px;
+      }
+      textarea {
+        min-height: 80px;
+      }
+      .label {
+        margin-bottom: 5px;
+        font-size: 15px;
+        span{
+          font-size: 12px;
+        }
+      }
+      button.send {
+        background: #f8bf45;
+        color: #fff;
+        border: 0px;
+        border-radius: 3px;
+        width: 100%;
+        height: 50px;
+        margin-bottom: 30px;
+        cursor: pointer;
+      }
+      .form-control-file{
+        margin-bottom: 30px;
+      }
     }
-    .form-control {
-      height: 50px;
-      margin-bottom: 10px;
-      padding-left: 20px;
-      font-size: 13px;
-    }
-    textarea {
-      min-height: 80px;
-    }
-    label {
-      margin-bottom: 5px;
-      font-size: 15px;
-    }
-    button.send {
-      background: #f8bf45;
-      color: #fff;
-      border: 0px;
-      border-radius: 3px;
-      width: 100%;
-      height: 50px;
-      margin-bottom: 30px;
-      cursor: pointer;
-    }
-    .form-control-file{
-      margin-bottom: 30px;
-    }
+    
 `;
 
 export const Subheader = styled.div`
@@ -680,3 +684,43 @@ export const ProductList = styled.div`
   }
 
 `;
+
+export const Preview = styled.div`
+  align-self: center;
+  margin-top: 30px;
+
+  label{
+    cursor: pointer;
+    width: 100%;
+
+    &:hover{
+      opacity: 0.7;
+    }
+
+    img{
+      height: 150px;
+      width: 150px;
+      border-radius: 5px;
+      border: 3px solid rgba(255,255,255,0.3);
+      background: #eee;
+      margin: 0px auto 0px auto;
+      display: block;
+      margin-bottom: 20px;
+      margin-top: -20px;
+    }
+
+    input{
+      display: none;
+    }
+
+    p{
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: #a2a2a2;
+      margin: 8px 0px 0px 0px;
+    }
+
+  }
+
+}`;

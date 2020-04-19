@@ -9,10 +9,11 @@ import { readProductSuccess, updateProductSuccess } from './actions';
 export function* createProduct({ payload }){
   console.log(payload)
   try{
-    const { name, description, imagem } = payload;
+    const { name, description, image } = payload;
     const response = yield call(api.post, '/products', {
       name, 
-      description
+      description,
+      image
     });
 
     console.log(response.data);
@@ -48,11 +49,11 @@ export function* updateProduct({ payload }){
   
   try{
     console.log(payload);
-    const { _id, name, description, imagem } = payload.data;
+    const { _id, name, description, image } = payload.data;
     const product = Object.assign({
       name, 
       description, 
-      imagem
+      image
     });
 
     const response = yield call(api.put, `/products/${_id}`, product);

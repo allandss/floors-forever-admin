@@ -52,7 +52,7 @@ export default function Products() {
           { products.map(product => (
             <div className="col-md-12">
               <div className="product" onClick={() => selectProduct(product._id)}>
-                <img src="" alt="" className="thumb" /> 
+                <img src={product.image} alt="" className="thumb" /> 
                 <div className="content">
                   <h3>{product.name}</h3>
                   <p className="description">{product.description}</p>

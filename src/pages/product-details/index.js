@@ -9,6 +9,7 @@ import Input from '../../components/Input';
 import api from '../../services/api';
 import history from '../../services/history';
 import { toast } from 'react-toastify';
+import ImagePreview from '../../components/imagePreview';
 
 import { store } from '../../store';
 
@@ -60,8 +61,8 @@ export default function ProductDetails() {
                 <Input name="name" className="form-control" type="text" />
                 <p className="label">Description</p>
                 <Input name="description" className="form-control" type="text" multiline="true" />
-                <p className="label">Image</p>
-                <Input name="imagem" className="form-control-file" type="file" />
+                <p className="label">Image <span>(Click image to change)</span></p>
+                <ImagePreview name="image" />
                 <button type="submit" className="send">Save</button>
               </Form>
             </div>
