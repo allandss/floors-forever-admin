@@ -24,7 +24,7 @@ export default function Product() {
     <Subheader>
       <div className="container">
         <div className="row">
-          <div className="col-6">
+          <div className="col-12">
           <h3>Products <span><b>/</b> Add new</span></h3>
           </div>
         </div>
