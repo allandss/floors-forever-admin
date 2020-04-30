@@ -1,26 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import { Subheader } from '../../styles';
 import { ProductList } from '../../styles';
 import api from '../../services/api';
-import { readProductRequest } from '../../store/modules/products/actions';
+import { readCategoryRequest } from '../../store/modules/category/actions';
 
-export default function Products() {
+export default function Categories() {
   const dispatch = useDispatch();
-  const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
   useEffect(()=> {
-    async function loadProducts(){
-      const response = await api.get('products');
-      const data = response.data.products;
-      setProducts(data);
+    async function loadCategories(){
+      const response = await api.get('categories');
+      const data = response.data.categories;
+      setCategories(data);
     }
-    loadProducts();
+    loadCategories();
   }, []);
 
-  function selectProduct(id){
-    dispatch(readProductRequest(id));
+  function selectCategory(id){
+    dispatch(readCategoryRequest(id));
   }
   
   return (
@@ -31,13 +31,13 @@ export default function Products() {
         <div className="row">
           <div className="col-6">
             <h3>
-              Products
+              Category
               <span />
             </h3>
           </div>
           <div className="col-6">
-            <a href="/new-product">
-              <button type="button">New product</button>
+            <a href="/new-category">
+              <button type="button">New category</button>
             </a>
           </div>
         </div>
@@ -45,17 +45,17 @@ export default function Products() {
     </Subheader>
     <div className="main">
       <div className="container">
-        <h2>Product List</h2>
+        <h2>Category List</h2>
         <ProductList>
           <div className="row">
-            {console.log(products)}
-          { products.map(product => (
+            {console.log(categories)}
+          { categories.map(category => (
             <div className="col-md-12">
-              <div className="product" onClick={() => selectProduct(product._id)}>
-                <img src={product.image} alt="" className="thumb" /> 
+              <div className="product" onClick={() => selectCategory(category._id)}>
+                <img src={category.image} alt="" className="thumb" /> 
                 <div className="content">
-                  <h3>{product.name}</h3>
-                  <p className="description">{product.description}</p>
+                  <h3>{category.name}</h3>
+                  <p className="description">{category.description}</p>
                 </div>
               </div>
             </div>

@@ -441,6 +441,7 @@ export const Header = styled.header`
     h2{
       font-size: 16px;
       margin-top: 4px;
+      color: #fff;
     }
 
     .icon-search{
@@ -460,6 +461,9 @@ export const Header = styled.header`
       height: 45px;
       width: 230px;
       padding: 0px 12px;
+    }
+    a:hover{
+      text-decoration: none;
     }
   }
 
@@ -655,6 +659,7 @@ export const ProductList = styled.div`
       border-radius: 5px 0px 0px 5px;
       float: left;
       height: 120px;
+      width: 120px;
     }
 
     .content{
