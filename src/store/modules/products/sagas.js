@@ -9,14 +9,13 @@ import { readProductSuccess, updateProductSuccess } from './actions';
 export function* createProduct({ payload }){
   console.log(payload)
   try{
-    const { name, description, category, image, colors } = payload;
-    console.log(colors)
+    const { name, description, serie, image, warranty  } = payload;
     const response = yield call(api.post, '/products', {
       name, 
       description,
-      category,
+      serie,
       image,
-      colors
+      warranty
     });
 
     console.log(response.data);
@@ -52,13 +51,13 @@ export function* updateProduct({ payload }){
   
   try{
     console.log(payload);
-    const { _id, name, description, image } = payload.data;
+    const { _id, name, description, image, warranty } = payload.data;
     const product = Object.assign({
       name, 
       description,
-      category: payload.category, 
       image,
-      colors: payload.colors
+      warranty,
+      serie: payload.serie
     });
 
     const response = yield call(api.put, `/products/${_id}`, product);

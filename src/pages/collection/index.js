@@ -11,35 +11,35 @@ import Select from 'react-select';
 import api from '../../services/api';
 
 
-import { createProductRequest } from '../../store/modules/products/actions';
+import { createCollectionRequest } from '../../store/modules/collections/actions';
 
-export default function Product() {
+export default function Collection() {
   const dispatch = useDispatch();
-  const [collection, setCollection] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [selectedOption, setSelectedOption] = useState();
 
   useEffect(()=> {
-    async function loadCollections(){
+    async function loadCategories(){
       let data = [];
-      const response = await api.get('serie');
-      data = response.data.series.map(item => {
+      const response = await api.get('categories');
+      data = response.data.categories.map(item => {
         return { value: item._id, label: item.name }
       });
       console.log(data);
-      setCollection(data);
+      setCategories(data);
     }
-    loadCollections();
+    loadCategories();
 
   }, []);
 
-  function handleSubmit({name, description, image, warranty}){
+  function handleSubmit({name, description, image}){
+    
     if(name && description && image && selectedOption.value){
-      dispatch(createProductRequest(name, description, selectedOption.value, image, warranty));
-      console.log(name, description, selectedOption.value, image, warranty)
+      dispatch(createCollectionRequest(name, description, image, selectedOption.value));
     }else{
+      console.log(name, description, image, selectedOption.value);
       alert('Preencha todos os campos para continuar');
     }
-    
   }
 
   function handleChange(selectedOption){
@@ -55,14 +55,14 @@ export default function Product() {
       <div className="container">
         <div className="row">
           <div className="col-12">
-          <h3>Products <span><b>/</b> Add new</span></h3>
+          <h3>Collection <span><b>/</b> Add new</span></h3>
           </div>
         </div>
       </div>
     </Subheader>
     <div className="main">
       <div className="container">
-        <h2>Create new product</h2>
+        <h2>Create new collection</h2>
         <AddProduct>
         <div className="content">
           <div className="row">
@@ -72,13 +72,12 @@ export default function Product() {
                 <Input name="name" className="form-control" type="text" />
                 <p className="label">Description</p>
                 <Input name="description" className="form-control" type="text" multiline="true" />
-                <p className="label">Collection</p>
-                <Select options={collection} value={selectedOption} onChange={handleChange} />
-                <p className="label mgT10">Warranty</p>
-                <Input name="warranty" className="form-control" type="text" />
+                <p className="label">Category</p>
+                <Select options={categories} value={selectedOption} onChange={handleChange} />
                 <p className="label mgT10">Image <span>(Click image to add)</span></p>
                 <ImagePreview name="image" />
-                <button type="submit" className="send mgT30">Add new product</button>
+                
+                <button type="submit" className="send mgT30">Add new collection</button>
               </Form>
             </div>
           </div>

@@ -1,7 +1,7 @@
-export function createProductRequest(name, description, category, image, colors){
+export function createProductRequest(name, description, serie, image, warranty ){
   return {
     type: '@products/CREATE_PRODUCT_REQUEST',
-    payload: { name, description, category, image, colors },
+    payload: { name, description, serie, image, warranty },
   };
 }
 export function readProductRequest(id){
@@ -17,10 +17,10 @@ export function readProductSuccess(product){
   };
 }
 
-export function updateProductRequest(data, category, colors){
+export function updateProductRequest(data, serie){
   return {
     type: '@products/UPDATE_PRODUCT_REQUEST',
-    payload: { data, category, colors },
+    payload: { data, serie },
   };
 }
 

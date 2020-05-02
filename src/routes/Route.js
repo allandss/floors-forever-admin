@@ -16,7 +16,7 @@ export default function RouterWrapper({
   }
 
   if(signed && !isPrivate){
-    return <Redirect to="/products" />
+    return <Redirect to="/categories" />
   }
 
   return <Route {...rest} component={Component} />;

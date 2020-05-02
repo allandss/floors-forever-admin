@@ -9,6 +9,9 @@ import ProductDetails from '../pages/product-details';
 import Categories from '../pages/categories';
 import Category from '../pages/category';
 import CategoryDetails from '../pages/category-details';
+import Collections from '../pages/collections';
+import Collection from '../pages/collection';
+import CollectionDetails from '../pages/collection-details';
 
 export default function Routes(){
   return (
@@ -21,6 +24,9 @@ export default function Routes(){
         <Route path="/categories" component={Categories} isPrivate />
         <Route path="/new-category" component={Category} isPrivate />
         <Route path="/edit-category" component={CategoryDetails} isPrivate />
+        <Route path="/collections" component={Collections} isPrivate />
+        <Route path="/new-collection" component={Collection} isPrivate />
+        <Route path="/edit-collection" component={CollectionDetails} isPrivate />
       </Switch>
    
   )
