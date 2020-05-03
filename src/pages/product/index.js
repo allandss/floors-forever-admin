@@ -37,6 +37,7 @@ export default function Product() {
       dispatch(createProductRequest(name, description, selectedOption.value, image, warranty));
       console.log(name, description, selectedOption.value, image, warranty)
     }else{
+      console.log(name, description, selectedOption.value, image, warranty)
       alert('Preencha todos os campos para continuar');
     }
     

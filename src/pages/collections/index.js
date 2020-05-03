@@ -6,6 +6,7 @@ import { Subheader } from '../../styles';
 import { ProductList } from '../../styles';
 import api from '../../services/api';
 import { readCollectionRequest } from '../../store/modules/collections/actions';
+import serverFile from '../../services/serverFile';
 
 export default function Collections() {
   const dispatch = useDispatch();
@@ -52,7 +53,7 @@ export default function Collections() {
           { collections.map(collection => (
             <div className="col-md-12">
               <div className="product" onClick={() => selectCollection(collection._id)}>
-                <img src={collection.image} alt="" className="thumb" /> 
+                <img src={serverFile+collection.image} alt="" className="thumb" /> 
                 <div className="content">
                   <h3>{collection.name}</h3>
                   <p className="description">{collection.description}</p>

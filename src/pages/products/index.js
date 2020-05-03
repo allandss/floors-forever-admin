@@ -6,6 +6,7 @@ import { Subheader } from '../../styles';
 import { ProductList } from '../../styles';
 import api from '../../services/api';
 import { readProductRequest } from '../../store/modules/products/actions';
+import serverFile from '../../services/serverFile';
 
 export default function Products() {
   const dispatch = useDispatch();
@@ -52,7 +53,7 @@ export default function Products() {
           { products.map(product => (
             <div className="col-md-12">
               <div className="product" onClick={() => selectProduct(product._id)}>
-                <img src={product.image} alt="" className="thumb" /> 
+                <img src={serverFile+product.image} alt="" className="thumb" /> 
                 <div className="content">
                   <h3>{product.name}</h3>
                   <p className="description">{product.description}</p>

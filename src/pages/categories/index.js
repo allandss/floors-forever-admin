@@ -6,6 +6,7 @@ import { Subheader } from '../../styles';
 import { ProductList } from '../../styles';
 import api from '../../services/api';
 import { readCategoryRequest } from '../../store/modules/category/actions';
+import serverFile from '../../services/serverFile';
 
 export default function Categories() {
   const dispatch = useDispatch();
@@ -52,7 +53,7 @@ export default function Categories() {
           { categories.map(category => (
             <div className="col-md-12">
               <div className="product" onClick={() => selectCategory(category._id)}>
-                <img src={category.image} alt="" className="thumb" /> 
+                <img src={serverFile+category.image} alt="" className="thumb" /> 
                 <div className="content">
                   <h3>{category.name}</h3>
                   <p className="description">{category.description}</p>

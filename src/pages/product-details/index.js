@@ -11,7 +11,6 @@ import history from '../../services/history';
 import { toast } from 'react-toastify';
 import ImagePreview from '../../components/imagePreview';
 import Select from 'react-select';
-import FileBase64 from 'react-file-base64';
 
 import { store } from '../../store';
 
