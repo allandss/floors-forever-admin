@@ -51,7 +51,7 @@ export default function Categories() {
           <div className="row">
             {console.log(categories)}
           { categories.map(category => (
-            <div className="col-md-12">
+            <div className="col-md-3">
               <div className="product" onClick={() => selectCategory(category._id)}>
                 <img src={serverFile+category.image} alt="" className="thumb" /> 
                 <div className="content">

@@ -8,7 +8,9 @@ import api from '../../services/api';
 import { readProductRequest } from '../../store/modules/products/actions';
 import serverFile from '../../services/serverFile';
 
+
 export default function Products() {
+  const html = '<b>Example HTML string</b>';
   const dispatch = useDispatch();
   const [products, setProducts] = useState([]);
   useEffect(()=> {
@@ -51,12 +53,11 @@ export default function Products() {
           <div className="row">
             {console.log(products)}
           { products.map(product => (
-            <div className="col-md-12">
+            <div className="col-md-3">
               <div className="product" onClick={() => selectProduct(product._id)}>
                 <img src={serverFile+product.image} alt="" className="thumb" /> 
                 <div className="content">
                   <h3>{product.name}</h3>
-                  <p className="description">{product.description}</p>
                 </div>
               </div>
             </div>

@@ -656,16 +656,19 @@ export const ProductList = styled.div`
 
     .thumb{
       display: block;
-      border-radius: 5px 0px 0px 5px;
+      border-radius: 5px 5px 0px 0px;
       float: left;
-      height: 120px;
-      width: 120px;
+      height: 200px;
+      width: 100%;
     }
 
     .content{
-      padding: 20px 40px 20px 20px;
-      width: calc(100% - 120px);
+      padding: 15px 20px;
+      width: 100%;
       float: left;
+      background: #fff;
+      border-radius: 0px 0px 5px 5px;
+      margin-bottom: 20px;
 
       .description{
         color: #999;
@@ -673,7 +676,7 @@ export const ProductList = styled.div`
     }
 
     h3{
-      font-size: 20px;
+      font-size: 16px;
       margin-bottom: 4px;
       margin-top: 0px;
       color: #3c3c3c;

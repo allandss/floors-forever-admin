@@ -72,7 +72,7 @@ export default function Product() {
                 <p className="label">Name</p>
                 <Input name="name" className="form-control" type="text" />
                 <p className="label">Description</p>
-                <Input name="description" className="form-control" type="text" multiline="true" />
+                <Input name="description" className="form-control description" type="text" multline="true" />
                 <p className="label">Collection</p>
                 <Select options={collection} value={selectedOption} onChange={handleChange} />
                 <p className="label mgT10">Warranty</p>

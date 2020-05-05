@@ -51,7 +51,7 @@ export default function Collections() {
           <div className="row">
             {console.log(collections)}
           { collections.map(collection => (
-            <div className="col-md-12">
+            <div className="col-md-3">
               <div className="product" onClick={() => selectCollection(collection._id)}>
                 <img src={serverFile+collection.image} alt="" className="thumb" /> 
                 <div className="content">

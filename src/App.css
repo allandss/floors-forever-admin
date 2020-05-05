@@ -55,3 +55,7 @@ input:focus {
   float: left;
   margin-bottom: 25px;
 }
+
+.description{
+  height: 350px;
+}
