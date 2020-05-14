@@ -12,6 +12,9 @@ import CategoryDetails from '../pages/category-details';
 import Collections from '../pages/collections';
 import Collection from '../pages/collection';
 import CollectionDetails from '../pages/collection-details';
+import Photos from '../pages/photos';
+import Photo from '../pages/photo';
+import PhotoDetails from '../pages/photo-details';
 
 export default function Routes(){
   return (
@@ -27,6 +30,9 @@ export default function Routes(){
         <Route path="/collections" component={Collections} isPrivate />
         <Route path="/new-collection" component={Collection} isPrivate />
         <Route path="/edit-collection" component={CollectionDetails} isPrivate />
+        <Route path="/photos" component={Photos} isPrivate />
+        <Route path="/new-photo" component={Photo} isPrivate />
+        <Route path="/edit-photo" component={PhotoDetails} isPrivate />
       </Switch>
    
   )

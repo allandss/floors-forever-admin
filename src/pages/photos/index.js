@@ -5,23 +5,23 @@ import Footer from '../../components/footer';
 import { Subheader } from '../../styles';
 import { ProductList } from '../../styles';
 import api from '../../services/api';
-import { readCategoryRequest } from '../../store/modules/category/actions';
+import { readPhotoRequest } from '../../store/modules/photo/actions';
 import serverFile from '../../services/serverFile';
 
-export default function Categories() {
+export default function Photos() {
   const dispatch = useDispatch();
-  const [categories, setCategories] = useState([]);
+  const [photos, setPhotos] = useState([]);
   useEffect(()=> {
-    async function loadCategories(){
-      const response = await api.get('categories');
-      const data = response.data.categories;
-      setCategories(data);
+    async function loadPhotos(){
+      const response = await api.get('photo');
+      const data = response.data.photos;
+      setPhotos(data);
     }
-    loadCategories();
+    loadPhotos();
   }, []);
 
-  function selectCategory(id){
-    dispatch(readCategoryRequest(id));
+  function selectPhoto(id){
+    dispatch(readPhotoRequest(id));
   }
   
   return (
@@ -32,13 +32,13 @@ export default function Categories() {
         <div className="row">
           <div className="col-6">
             <h3>
-              Category
+              Photos
               <span />
             </h3>
           </div>
           <div className="col-6">
-            <a href="/new-category">
-              <button type="button">New category</button>
+            <a href="/new-photo">
+              <button type="button">New photo</button>
             </a>
           </div>
         </div>
@@ -46,17 +46,16 @@ export default function Categories() {
     </Subheader>
     <div className="main">
       <div className="container">
-        <h2>Category List</h2>
+        <h2>Photo List</h2>
         <ProductList>
           <div className="row">
-            {console.log(categories)}
-          { categories.map(category => (
+            {console.log(photos)}
+          { photos.map(photo => (
             <div className="col-md-3">
-              <div className="product" onClick={() => selectCategory(category._id)}>
-                <img src={serverFile+category.image} alt="" className="thumb" /> 
+              <div className="product" onClick={() => selectPhoto(photo._id)}>
+                <img src={serverFile+photo.image} alt="" className="thumb" /> 
                 <div className="content">
-                  <h3>{category.name}</h3>
-                  {/* <p className="description">{category.description}</p> */}
+                  <h3>{photo.name}</h3>
                 </div>
               </div>
             </div>

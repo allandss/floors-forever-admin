@@ -6,7 +6,7 @@ export default reducers => {
     {
       key: 'floorsforever',
       storage,
-      whitelist: ['auth', 'user', 'products', 'category', 'collection'],
+      whitelist: ['auth', 'user', 'products', 'category', 'collection', 'photo'],
     },
     reducers
   );

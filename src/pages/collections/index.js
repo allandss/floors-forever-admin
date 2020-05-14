@@ -56,7 +56,7 @@ export default function Collections() {
                 <img src={serverFile+collection.image} alt="" className="thumb" /> 
                 <div className="content">
                   <h3>{collection.name}</h3>
-                  <p className="description">{collection.description}</p>
+                  {/* <p className="description">{collection.description}</p> */}
                 </div>
               </div>
             </div>
